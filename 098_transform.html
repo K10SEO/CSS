@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Transition Test</title>
+  <style>
+		.box{
+			width:100px;
+			height:100px;
+			background:dodgerblue;
+            border: 1px solid #000;
+			transition:all 1s;
+            transform-origin: left top;
+		}
+		
+		.box:hover{
+			/* transform: scale(2); */
+            /* transform: rotate(360deg);
+            transform: rotate(360deg) scale(2); 두개의 효과를 쓸수도 있다 */
+            /* transform: rotate(1turn); */
+            /* transform: translate(100px, 100px); */ /*y,x축으로 이동*/
+            /* transform: translateX(100px); */ /*x축으로 이동*/
+            /* transform: translateY(100px); */ /*y축으로 이동*/
+            /* transform: skew(40deg); */ /*40도 비틀어줌*/
+		}
+
+  </style>
+</head>
+<body>
+  <div class="box">hello world</div>
+</body>
+</html>
+
+
+
+translate VS position
+앞서 우리는 position 속성을 통해 원하는 좌표로 요소를 움직일 수 있었습니다. 그렇다면 translate 는 중복되는 기능일까요?? 그렇다면 우리는 언제 position을 사용하고 translate 를 사용해야 할까요??
+
+웹페이지 렌더링
+1. 파싱
+브라우저는 우선 html 파일을 DOM으로 변환(파싱)합니다.
+- 오타 혹은 잘못된 문법 사용 경우 예외처리
+- link, img 와 같은 태그 리소스 다운로드
+- script 태그를 만나면 DOM 파싱 중단 후 자바스크립트 해석
+
+2. 스타일 계산
+CSS 역시 파싱하여 CSSOM으로 변환합니다.
+- CSSOM 정보를 통해 돔 노드 스타일 결정
+- 결정된 스타일은 크롬 개발자 도구의 computed에서 확인 가능
+
+3. 레이아웃
+CSSOM 정보를 토대로 레이아웃 트리(렌더 트리)를 생성합니다.
+- 돔과 계산된 스타일을 따라가며 요소의 크기나 좌표 같은 정보를 담은 레이아웃 트리 생성
+- 화면에 표현되는 정보만 트리에 담기게된다. (display:none X, 가상요소 O)
+
+4. 페인트
+레이아웃 트리(렌더 트리)가 생성되면 이 트리를 따라 페인트 기록이 생성됩니다
+- 페인트 기록에는 요소로를 렌더린하는 순서가 저장됨
+- 지금까지의 정보를 바탕으로 한페이지를 여러개의 레이어로 나눈 뒤 텍스트, 색, 이미지, 보더, 그림자 등 모든 시각적 부분을 그리는 작업 진행
+
+5. 컴포지팅
+각각의 레이어를 스크린에 픽셀로 표현하고 (레스터링) 나누었던 레이어들을 합성해 페이지를 그립니다. 이를 컴포지팅이라고 합니다.
+
+
+
+
+
+
+
+
+
+

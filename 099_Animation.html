@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        @keyframes jongseo {
+            0%{
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(300px, 0);
+            }
+            50% {
+                transform: translate(300px, 300px) rotate(360deg) scale(2);
+            }
+            75%{
+                transform: translate(0, 300px);
+            }
+            100%{
+                transform: translate(0, 0);
+            }
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            animation: jongseo 2s;
+            animation-iteration-count: 3;         /* 재생횟수가 양수인 경우 */
+            animation-iteration-count: infinite;  /* 애니메이션을 무한 반복할 경우 */
+            animation-direction: reverse;           /* 역방향 재생 */
+            animation-direction: alternate;         /* 순방향 시작, 순방향-역방향 번갈아 재생 */
+            animation-delay: 1.5s;          /* 지연 재생 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">hello</div>
+</body>
+</html>
